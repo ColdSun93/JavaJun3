@@ -1,15 +1,20 @@
 package ru.coldsun.task1;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
     private String name;
     private int age;
-
-    private transient double averageScore;
+    private transient double GPA;
+    /*
+    * Модификатор transient используется, если возникает необходимость сохранить объект (экземпляр) класса (выполнить сериализацию).
+    * Использование при описании поля класса модификатора transient исключает указанное поле из сериализации.
+     */
 
     public Student(String name, int age, double averageScore) {
         this.name = name;
         this.age = age;
-        this.averageScore = averageScore;
+        this.GPA = averageScore;
     }
 
     public String getName() {
@@ -21,6 +26,6 @@ public class Student {
     }
 
     public double getAverageScore() {
-        return averageScore;
+        return GPA;
     }
 }
